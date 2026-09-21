@@ -27,8 +27,9 @@ sap_migration/
 │   └── raci_matrix.md                       # Customer vs. SAP ECS vs. System Integrator RACI
 ├── checklists/
 │   └── cvi_readiness_checklist.md           # ECC 6.0 Customer-Vendor Integration (CVI) steps
-└── runbooks/
-    └── technical_cutover_runbook.md         # Minute-by-minute Cutover Weekend execution plan
+├── runbooks/
+│   ├── sum_dmo_execution_guide.md          # Hands-on SUM DMO System Move command & screen guide
+│   └── technical_cutover_runbook.md         # Minute-by-minute Cutover Weekend execution plan
 ```
 
 ---
@@ -77,7 +78,7 @@ flowchart TB
 | **Discover** | Readiness Check, Simplification Item Catalog, Sizing | [network_and_sizing_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/architecture/network_and_sizing_spec.md) |
 | **Prepare** | Network setup, VNet Peering, Project Charter, RACI alignment | [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
 | **Explore** | Fit-to-Standard workshops, CVI prerequisite synchronization | [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) |
-| **Realize** | Custom code remediation, Sandbox & Mock conversion iterations | [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
+| **Realize** | Custom code remediation, Sandbox & Mock conversion iterations | [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) & [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
 | **Deploy** | Dress rehearsal, Go/No-Go gate, Production Cutover weekend | [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
 | **Run** | Hypercare, operational handover to SAP Enterprise Cloud Services (ECS) | [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
 
@@ -88,4 +89,5 @@ flowchart TB
 1. **Review Operating Model:** Read [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) to establish contractual boundaries between your team, SAP ECS, and implementation partners.
 2. **Review Network Blueprint:** Inspect [network_and_sizing_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/architecture/network_and_sizing_spec.md) for IP allocation, firewall ports, and data migration pipe mechanics.
 3. **Initiate Functional Remediation:** Use [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) to start Business Partner synchronization directly on your current ECC 6.0 system.
-4. **Plan Cutover Iterations:** Use [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) to structure your Sandbox, Development, and Quality (Dress Rehearsal) migration runs.
+4. **Execute Technical Conversion Runs:** Follow [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) for hands-on command-line and screen inputs during Sandbox/DEV/QAS mock migrations.
+5. **Plan Cutover Weekend:** Use [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) to structure the minute-by-minute Production Cutover.
