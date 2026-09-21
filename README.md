@@ -28,8 +28,9 @@ sap_migration/
 ├── checklists/
 │   └── cvi_readiness_checklist.md           # ECC 6.0 Customer-Vendor Integration (CVI) steps
 ├── runbooks/
-│   ├── sum_dmo_execution_guide.md          # Hands-on SUM DMO System Move command & screen guide
-│   └── technical_cutover_runbook.md         # Minute-by-minute Cutover Weekend execution plan
+│   ├── post_migration_and_hypercare_guide.md # Post-cutover stabilization, SU25, incident SLAs & hypercare
+│   ├── sum_dmo_execution_guide.md            # Hands-on SUM DMO System Move command & screen guide
+│   └── technical_cutover_runbook.md           # Minute-by-minute Cutover Weekend execution plan
 ```
 
 ---
@@ -80,7 +81,7 @@ flowchart TB
 | **Explore** | Fit-to-Standard workshops, CVI prerequisite synchronization | [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) |
 | **Realize** | Custom code remediation, Sandbox & Mock conversion iterations | [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) & [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
 | **Deploy** | Dress rehearsal, Go/No-Go gate, Production Cutover weekend | [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
-| **Run** | Hypercare, operational handover to SAP Enterprise Cloud Services (ECS) | [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
+| **Run** | Hypercare, operational handover to SAP Enterprise Cloud Services (ECS) | [post_migration_and_hypercare_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/post_migration_and_hypercare_guide.md) & [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
 
 ---
 
@@ -91,3 +92,4 @@ flowchart TB
 3. **Initiate Functional Remediation:** Use [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) to start Business Partner synchronization directly on your current ECC 6.0 system.
 4. **Execute Technical Conversion Runs:** Follow [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) for hands-on command-line and screen inputs during Sandbox/DEV/QAS mock migrations.
 5. **Plan Cutover Weekend:** Use [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) to structure the minute-by-minute Production Cutover.
+6. **Operate Hypercare & BAU Handover:** Follow [post_migration_and_hypercare_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/post_migration_and_hypercare_guide.md) for SU25 security remediation, daily financial reconciliations, shift schedules, SAP ECS escalation procedures, and legacy Azure ECC decommissioning.
