@@ -26,11 +26,14 @@ sap_migration/
 ├── governance/
 │   └── raci_matrix.md                       # Customer vs. SAP ECS vs. System Integrator RACI
 ├── checklists/
-│   └── cvi_readiness_checklist.md           # ECC 6.0 Customer-Vendor Integration (CVI) steps
+│   ├── custom_code_and_clean_core_guide.md   # ABAP ATC checks, obsolete tables & clean core strategy
+│   ├── cvi_readiness_checklist.md           # ECC 6.0 Customer-Vendor Integration (CVI) steps
+│   └── data_cleansing_and_archiving_spec.md # SARA archiving, technical housekeeping & DB lean sizing
 ├── runbooks/
 │   ├── post_migration_and_hypercare_guide.md # Post-cutover stabilization, SU25, incident SLAs & hypercare
 │   ├── sum_dmo_execution_guide.md            # Hands-on SUM DMO System Move command & screen guide
-│   └── technical_cutover_runbook.md           # Minute-by-minute Cutover Weekend execution plan
+│   ├── technical_cutover_runbook.md           # Minute-by-minute Cutover Weekend execution plan
+│   └── testing_strategy_and_test_catalog.md  # Multi-tier testing (SIT, UAT, Performance) & test scenarios
 ```
 
 ---
@@ -76,10 +79,10 @@ flowchart TB
 
 | Phase | Core Focus Areas | Workspace Deliverables |
 | :--- | :--- | :--- |
-| **Discover** | Readiness Check, Simplification Item Catalog, Sizing | [network_and_sizing_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/architecture/network_and_sizing_spec.md) |
+| **Discover** | Readiness Check, Simplification Item Catalog, Sizing, Archiving | [network_and_sizing_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/architecture/network_and_sizing_spec.md) & [data_cleansing_and_archiving_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/data_cleansing_and_archiving_spec.md) |
 | **Prepare** | Network setup, VNet Peering, Project Charter, RACI alignment | [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
 | **Explore** | Fit-to-Standard workshops, CVI prerequisite synchronization | [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) |
-| **Realize** | Custom code remediation, Sandbox & Mock conversion iterations | [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) & [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
+| **Realize** | Custom code remediation, Sandbox conversion, SIT & UAT testing | [custom_code_and_clean_core_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/custom_code_and_clean_core_guide.md), [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) & [testing_strategy_and_test_catalog.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/testing_strategy_and_test_catalog.md) |
 | **Deploy** | Dress rehearsal, Go/No-Go gate, Production Cutover weekend | [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) |
 | **Run** | Hypercare, operational handover to SAP Enterprise Cloud Services (ECS) | [post_migration_and_hypercare_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/post_migration_and_hypercare_guide.md) & [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) |
 
@@ -89,7 +92,10 @@ flowchart TB
 
 1. **Review Operating Model:** Read [raci_matrix.md](file:///Users/priyankapalo/Downloads/sap_migration/governance/raci_matrix.md) to establish contractual boundaries between your team, SAP ECS, and implementation partners.
 2. **Review Network Blueprint:** Inspect [network_and_sizing_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/architecture/network_and_sizing_spec.md) for IP allocation, firewall ports, and data migration pipe mechanics.
-3. **Initiate Functional Remediation:** Use [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) to start Business Partner synchronization directly on your current ECC 6.0 system.
-4. **Execute Technical Conversion Runs:** Follow [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) for hands-on command-line and screen inputs during Sandbox/DEV/QAS mock migrations.
-5. **Plan Cutover Weekend:** Use [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) to structure the minute-by-minute Production Cutover.
-6. **Operate Hypercare & BAU Handover:** Follow [post_migration_and_hypercare_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/post_migration_and_hypercare_guide.md) for SU25 security remediation, daily financial reconciliations, shift schedules, SAP ECS escalation procedures, and legacy Azure ECC decommissioning.
+3. **Execute Data Cleansing & Archiving:** Use [data_cleansing_and_archiving_spec.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/data_cleansing_and_archiving_spec.md) to reduce source DB size, optimize HANA sizing, and lower cloud subscription costs.
+4. **Initiate Functional Remediation:** Use [cvi_readiness_checklist.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/cvi_readiness_checklist.md) to start Business Partner synchronization directly on your current ECC 6.0 system.
+5. **Remediate Custom Code:** Follow [custom_code_and_clean_core_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/checklists/custom_code_and_clean_core_guide.md) to run ATC checks, fix obsolete table accesses, and adopt Clean Core extensibility.
+6. **Execute Technical Conversion Runs:** Follow [sum_dmo_execution_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/sum_dmo_execution_guide.md) for hands-on command-line and screen inputs during Sandbox/DEV/QAS mock migrations.
+7. **Conduct Multi-Tier Testing:** Execute tests using [testing_strategy_and_test_catalog.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/testing_strategy_and_test_catalog.md) across SIT, UAT, and Performance test cycles.
+8. **Plan Cutover Weekend:** Use [technical_cutover_runbook.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/technical_cutover_runbook.md) to structure the minute-by-minute Production Cutover.
+9. **Operate Hypercare & BAU Handover:** Follow [post_migration_and_hypercare_guide.md](file:///Users/priyankapalo/Downloads/sap_migration/runbooks/post_migration_and_hypercare_guide.md) for SU25 security remediation, daily financial reconciliations, shift schedules, SAP ECS escalation procedures, and legacy Azure ECC decommissioning.
